@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  max-width: 1400px;
+  max-height: 100vh;
+  margin: auto auto;
+  background-color: black;
+  color: #dddddd;
+}
+main {
+  width: 100%;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  padding: 0.5em 1em;
+  background-color: #646cff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover {
+  border-color: #646cff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1em;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.col {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+input {
+  padding: 0.2em;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* All DATA */
+table {
+  margin-bottom: 30px;
+  border-collapse: collapse;
+  width: 1200px;
+  
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #2b2b2b;
+}
+.dltedt {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 3px;
+}
+.dltedt span {
+  padding: 0.2em;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.dltedt span:nth-child(1) {
+  background-color: red;
+}
+.dltedt span:nth-child(2) {
+  background-color: rgb(49, 116, 250);
+}
+.bg-red-600 {
+  background-color: rgb(255, 0, 0);
+  color: white;
+  padding: 5px;
+}
