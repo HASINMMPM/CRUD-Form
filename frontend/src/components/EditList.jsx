@@ -6,7 +6,7 @@ import axios from "axios";
 const EditList = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [formData, setFormData] = useState(null); // Hold the fetched data
+  const [formData, setFormData] = useState(null); 
 
   const {
     register,
@@ -15,14 +15,15 @@ const EditList = () => {
     formState: { errors },
   } = useForm();
 
-  // Fetch the data for the specific ID when the component loads
   useEffect(() => {
     const fetchItem = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/form/list/${id}`);
+        const response = await axios.get(
+          `http://localhost:3000/form/list/${id}`
+        );
         setFormData(response.data);
 
-        // Pre-fill the form fields with the fetched data
+      
         setValue("seller", response.data.seller);
         setValue("branch", response.data.branch);
         setValue("description", response.data.description);
@@ -35,7 +36,7 @@ const EditList = () => {
     fetchItem();
   }, [id, setValue]);
 
-  // Handle form submission
+
   const onSubmit = async (data) => {
     try {
       const response = await axios.put(
@@ -43,7 +44,7 @@ const EditList = () => {
         data
       );
       console.log(response.data);
-      navigate("/all/list"); // Navigate to the list page after successful edit
+      navigate("/all/list"); 
     } catch (error) {
       console.error("Error updating data", error.response?.data);
     }
@@ -79,7 +80,9 @@ const EditList = () => {
           <div className="col">
             <label htmlFor="description">Description</label>
             <textarea
-              {...register("description", { required: "Description is required" })}
+              {...register("description", {
+                required: "Description is required",
+              })}
               placeholder="Enter description"
             />
             {errors.description && (
@@ -91,7 +94,10 @@ const EditList = () => {
             <label htmlFor="amount">Amount</label>
             <input
               type="number"
-              {...register("amount", { required: "Amount is required", min: 0 })}
+              {...register("amount", {
+                required: "Amount is required",
+                min: 0,
+              })}
               placeholder="Enter amount"
             />
             {errors.amount && (
@@ -102,7 +108,7 @@ const EditList = () => {
           <button type="submit">Edit & Save</button>
         </form>
       ) : (
-        <p>Loading form data...</p> // Show a loading message while data is being fetched
+        <p>Loading form data...</p> 
       )}
     </div>
   );
